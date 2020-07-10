@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns= "http //www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" 
+        xmlns:sec="http://www.thymeleaf.org">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!--para usar bootstrap  -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- font-awesom -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- iconos de materialize -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+ 	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Cardo:700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
+
+  
+  <!-- link CSS -->
+  <link rel="stylesheet" href="/static/css/mystyle.css" th:href="@{/css/mystyle.css}">
+  
+    <!-- logo en pestanea de navegacion -->
+  <link rel="icon" type="imagen/png" href="../static/img/letra-h.png" th:href="@{/img/letra-h.png}">
+
+  <title >Hotel Sierras Inn</title>
+</head>
+
+<body data-spy="scroll" data-target="#myScrollspy">
+
+  <div th:include="components/nav.html"></div>
+  
+  <!-- formulario de reserva -->
+
+  <div class="margen imagen1">
+    <div id="booking" class="section">
+      <div class="section-center">
+        <div class="container">
+          <div class="row">
+            <div class="booking-form">
+              <div class="form-header">
+                <h3>Datos de la Reserva</h3>
+              </div>
+              <form id="formReserva" th:object="${reservaForm}" method="post" th:action="@{/}" autocomplete="off">
+                <input class="form-group" type="hidden" name="username" th:value="${#httpServletRequest.remoteUser}" id="username">
+                <input class="form-group" type="hidden" th:field="*{dni}" th:value="${dni}" id="dni">
+                <input class="form-group" type="hidden" th:field="*{cantDias}" th:value="*{cantDias}">
+                <input class="form-group" type="hidden" th:field="*{cantHabitaciones}" th:value="*{cantHabitaciones}" id="cantHabitaciones">
+                <input class="form-group" type="hidden" th:field="*{habitacion}" th:value="*{habitacion}" id="habitacion">
+  
+                <div th:if="${!exito}" class="alert alert-danger" role="alert">
+                    No se pudo realizar la reserva
+                </div>
+                <div th:if="${exito}" class="alert alert-success" role="alert">
+                    La Reserva se realizo con exito
+                </div>
+                  
+                <div class="form-group row">
+                  <label for="nombre" class="col-sm-2 col-form-label">Nombre:</label>
+                  <div class="col-sm-2">
+                    <input type="text" readonly class="form-control-plaintext text-primary" id="nombre" th:field="*{nombre}">
+                  </div>
+                  <label for="apellido" class="col-sm-2 col-form-label">Apellido:</label>
+                  <div class="col-sm-2">
+                    <input type="text" readonly class="form-control-plaintext text-primary" id="apellido" th:field="*{apellido}">
+                  </div>
+                  <label for="cantAdultos" class="col-sm-2 col-form-label">Adultos:</label>
+                  <div class="col-sm-2">
+                    <input type="text" readonly class="form-control-plaintext text-primary" id="cantAdultos" th:field="*{cantAdultos}">
+                  </div>
+                  <label for="fechaEntrada" class="col-sm-2 col-form-label">Desde:</label>
+                  <div class="col-sm-2">
+                    <input type="text" readonly class="form-control-plaintext text-primary" id="fechaEntrada" th:field="*{fechaEntrada}">
+                  </div>
+                  <label for="fechaSalida" class="col-sm-2 col-form-label">Hasta:</label>
+                  <div class="col-sm-2">
+                    <input type="text" readonly class="form-control-plaintext text-primary" id="fechaSalida" th:field="*{fechaSalida}">
+                  </div>
+                  <label for="cantNinios" class="col-sm-2 col-form-label">Niños:</label>
+                  <div class="col-sm-2">
+                    <input type="text" readonly class="form-control-plaintext text-primary" id="cantNinios" th:field="*{cantNinios}">
+                  </div>
+                  <div class="col-lg-12 text-center">
+                    <label for="tarifaReserva" class="col-sm-6 col-form-label" th:field="*{cantDias}" th:text="'Monto Total por '+ *{cantDias} +' noche/s'">Monto por :</label>
+                    <input type="number" readonly class="text-primary" id="tarifaReserva" th:field="*{tarifaReserva}" >
+                </div>
+                </div>
+                <hr>
+                <div class="text-center">
+                  <h3>Habitaciones</h3>
+                </div>
+                <table class="table table-sm">
+                  <thead>
+                    <tr style="background-color: rgb(168, 143, 28);">
+                      <th scope="col">Tipo de habitacion</th>
+                      <th scope="col">Capacidad</th>
+                      <th scope="col">Precio por noche</th>
+                      <th scope="col">Descripcion</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr th:each="h:${reservaForm.habitacion}">
+                      <th scope="row" th:text="${h.tipoHabitacion.clase}" ></th>
+                      <td th:text="${h.cantidadhuesped}" ></td>
+                      <td th:text="${h.tarifa}" ></td>
+                      <td th:text="${h.descripcion}" ></td>
+                      </td>
+                    </tr>
+                  </tbody> 
+                </table>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div th:include="components/scripts.html" th:remove="tag"></div>
+    
+</body>
+</html>

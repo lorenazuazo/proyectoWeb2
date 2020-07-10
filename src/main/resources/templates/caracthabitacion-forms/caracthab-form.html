@@ -1,0 +1,24 @@
+<form id="caracteristicaForm" th:object="${caractForm}" method="post" th:action="${editMode}?@{/modificaciones/editar-Caracteristica}:@{/modificaciones/crearCaracteristica}" autocomplete="off">
+    <input class="form-control" type=hidden th:field="${caractForm.id}"  th:if="${editMode}">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="detalle">Descripcion</label>
+            <input type="text" class="form-control" id="detalle" th:field="*{detalle}" placeholder="Detalle Caracteristica">
+            <div class="alert-danger" th:if="${#fields.hasErrors('detalle')}" th:errors="*{detalle}">
+                Error en detalle</div>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="estado">Estado</label>
+            <select th:field="${caractForm.estado}" class="form-control" id="estado">
+              <option th:each="estado:${T(com.web2.hotel.entities.CaracteristicasHabitacion.Estado).values()}" th:value="${estado}" th:text="${estado}"></option>
+            </select>
+            <div class="alert-danger" th:if="${#fields.hasErrors('estado')}" th:errors="*{estado}">
+                Error en estado</div>
+          </div> 
+        <div class="col-lg-12 text-center">
+            <a class="btn btn-secondary btnformuser" th:href="@{/modificaciones/caracteristica/cancel}">Cancelar</a>
+            <input type="submit" class="btn btn-primary btnformuser" th:value="${editMode}?'Guardar Cambios':'Crear caracteristica'">
+        </div>
+        <div class="alert alert-danger text-center" th:if="${formErrorMessage}" th:text="${formErrorMessage}">
+            Error</div>
+</form>

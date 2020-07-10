@@ -1,0 +1,37 @@
+<div class="table-responsive">
+	<table id="ListDataTable" class="table table-bordered table-hover table-striped">
+		<thead class="thead-light">
+		<tr>
+            <th scope="col">Id</th>
+			<th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Dni</th>
+            <th scope="col">Fecha Entrada</th>
+            <th scope="col">Fecha Salida</th>
+            <th scope="col">Fecha de Reserva</th>
+			<th scope="col">Estado</th>
+			<th></th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr th:each="reserva:${reservaList}">
+			<th scope="row" th:text="${reserva.idReserva}"></th>
+			<td th:text="${reserva.nombre}"></td>
+			<td th:text="${reserva.apellido}"></td>
+			<td th:text="${reserva.dni}"></td>
+            <td th:text="${reserva.fechaEntrada}"></td>
+            <td th:text="${reserva.fechaSalida}"></td>
+            <td th:text="${reserva.fechaReserva}"></td>
+            <td th:text="${reserva.estado}"></td>
+			<td>
+				<a title="editar" href="#" th:href="@{'/modificaciones/editReserva/'+ ${reserva.idReserva}}"><i class="fas fa-edit"></i></a>
+				<a title="eliminar" href="#" th:onclick="'javascript:confirmDelete(\''+ ${reserva.idReserva} +'\');'"><i class="fas fa-user-times"></i></a>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<!-- mensaje que muestra que no se elimino el usuario -->
+	<div id="deleteError" th:if="${deleteError}" class="alert alert-danger text-center" role="alert">
+		<span th:text="${deleteError}"></span>
+	</div>
+</div> 

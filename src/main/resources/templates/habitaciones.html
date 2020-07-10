@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--para usar bootstrap  -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- iconos de materialize -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Cardo:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
+
+
+    <!-- link CSS -->
+    <link rel="stylesheet" href="../static/css/mystyle.css" th:href="@{/css/mystyle.css}">
+    <link rel="stylesheet" href="../static/css/habiatciones.css" th:href="@{/css/habiatciones.css}">
+
+    <!-- logo en pestaña de navegacion -->
+    <link rel="icon" type="imagen/png" href="../static/img//letra-h.png" th:href="@{/img/letra-h.png}">
+
+    <title>Hotel Sierra Inn</title>
+</head>
+
+<body style="background: #292B2C;">
+    <!-- barra de navegacion -->
+    <div th:include="components/nav.html" th:remove="tag"></div>
+
+  
+    <div class="contenedor">
+        <img src="../static/img/habitacion-flor.jpg" th:src="@{/img/habitacion-flor.jpg}" alt="habitacion con flores"/>
+        <div class="centrado">Habitaciones</div>
+    </div>
+
+
+    <div class="container" th:object="${hab}">
+        <div class="row">
+
+            <div class="col-md-4 col-sm-6 mt-3 mb-3">
+                <div class="card" style="width: 18rem;">
+                    <img th:src="@{/img/hab-cama-simple.jpg}" src="../static/img/hab-cama-simple.jpg"
+                        class="card-img-top" alt="${hab[0].clase}">
+                    <div class="card-body">
+                        <h5 th:text="${hab[0].clase}" class="card-title">titulo</h5>
+                        <p th:text="${hab[0].descripcion}" class="card-text">descripcion</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <div class="container">
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#dialogo1">Ver mas</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- modal -->
+            <div class="modal fade" id="dialogo1">
+                <div class="modal-dialog modal-sm modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 th:text="${hab[0].clase}" class="modal-title"></h3>
+                        </div>
+                        <div class="modal-body">
+                            <p><strong>Dimensión:</strong></p><p th:text="${hab[0].dimension}"></p>
+                            <p><strong>Camas:</strong></p><p th:text="${hab[0].camas}"></p> 
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 mt-3 mb-3">
+                <div class="card" style="width: 18rem;">
+                    <img th:src="@{/img/hab-roja.jpg}" src="../static/img/hab-roja.jpg" class="card-img-top"
+                        alt="${hab[1].clase}">
+                    <div class="card-body">
+                        <h5 th:text="${hab[1].clase}" class="card-title">titulo</h5>
+                        <p th:text="${hab[1].descripcion}" class="card-text">descripcion</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <div class="container">
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#dialogo2">Ver mas</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- modal -->
+            <div class="modal fade" id="dialogo2">
+                <div class="modal-dialog modal-sm modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 th:text="${hab[1].clase}" class="modal-title"></h3>
+                        </div>
+                        <div class="modal-body">
+                            <p><strong>Dimensión:</strong></p><p th:text="${hab[1].dimension}"></p>
+                            <p><strong>Camas:</strong></p><p th:text="${hab[1].camas}"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 mt-3 mb-3">
+                <div class="card" style="width: 18rem;">
+                    <img th:src="@{/img/hab-rosa.jpg}" src="../static/img/hab-rosa.jpg" class="card-img-top" alt="${hab[2].clase}">
+                    <div class="card-body">
+                        <h5 th:text="${hab[2].clase}" class="card-title">titulo</h5>
+                        <p th:text="${hab[2].descripcion}" class="card-text">descripcion</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <div class="container">
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#dialogo3">Ver mas</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- modal -->
+            <div class="modal fade" id="dialogo3">
+                <div class="modal-dialog modal-sm modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 th:text="${hab[2].clase}" class="modal-title"></h3>
+                        </div>
+                        <div class="modal-body">
+                            <p><strong>Dimensión:</strong></p><p th:text="${hab[2].dimension}"></p>
+                            <p><strong>Camas:</strong></p><p th:text="${hab[2].camas}"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 mt-3 mb-3">
+                <div class="card" style="width: 18rem;">
+                    <img th:src="@{/img/h-2camas.jpg}" src="../static/img/h-2camas.jpg" class="card-img-top" alt="${hab[3].clase}">
+                    <div class="card-body">
+                        <h5 th:text="${hab[3].clase}" class="card-title">titulo</h5>
+                        <p th:text="${hab[3].descripcion}" class="card-text">descripcion</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <div class="container">
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#dialogo4">Ver mas</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- modal -->
+            <div class="modal fade" id="dialogo4">
+                <div class="modal-dialog modal-sm modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 th:text="${hab[3].clase}" class="modal-title"></h3>
+                        </div>
+                        <div class="modal-body">
+                            <p><strong>Dimensión:</strong></p><p th:text="${hab[3].dimension}"></p>
+                            <p><strong>Camas:</strong></p><p th:text="${hab[3].camas}"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 mt-3 mb-3">
+                <div class="card" style="width: 18rem;">
+                    <img th:src="@{/img/hab-Superior.jpg}" src="../static/img/hab-Superior.jpg" class="card-img-top"
+                        alt="${hab[4].clase}">
+                    <div class="card-body">
+                        <h5 th:text="${hab[4].clase}" class="card-title">titulo</h5>
+                        <p th:text="${hab[4].descripcion}" class="card-text">descripcion</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <div class="container">
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#dialogo5">Ver mas</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- modal -->
+            <div class="modal fade" id="dialogo5">
+                <div class="modal-dialog modal-sm modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 th:text="${hab[4].clase}" class="modal-title"></h3>
+                        </div>
+                        <div class="modal-body">
+                            <p><strong>Dimensión:</strong></p></p><p th:text="${hab[4].dimension}"></p>
+                            <p><strong>Camas:</strong></p></p><p th:text="${hab[4].camas}"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 mt-3 mb-3">
+                <div class="card" style="width: 18rem;">
+                    <img th:src="@{/img/h-multiple.jpg}" src="../static/img/h-multiple.jpg" class="card-img-top" alt="${hab[5].clase}">
+                    <div class="card-body">
+                        <h5 th:text="${hab[5].clase}" class="card-title"></h5>
+                        <p th:text="${hab[5].descripcion}" class="card-text"></p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <div class="container">
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#dialogo6">Ver mas</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- modal -->
+            <div class="modal fade" id="dialogo6">
+                <div class="modal-dialog modal-sm modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 th:text="${hab[5].clase}" class="modal-title"></h3>
+                        </div>
+                        <div class="modal-body">
+                            <p><strong>Dimensión:</strong></p><p th:text="${hab[5].dimension}"></p>
+                            <p><strong>Camas:</strong></p><p th:text="${hab[5].camas}"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container containerdos">
+        <div class="sb-package">
+            <h2>Información útil</h2>
+            <hr style="height:5px;border-width:0;background-color:rgb(168, 143, 28)">
+            <h4>Política del hotel</h4>
+            <ul>
+                <li>
+                    <span><strong>Check-in:&nbsp;</strong> Desde 14:00 horas</span>
+                </li>
+                <li>
+                    <span style="line-height: 1.428571429;"><strong>Check-out:</strong>&nbsp; Desde 05:00 to 12:00
+                        horas</span>
+                </li>
+            </ul>
+            <h4>Cancelación/prepago</h4>
+            <p>Las condiciones de cancelación y de pago por adelantado pueden variar el tipo de habitación selon. Por
+                favor, introduzca las fechas de su estancia y las condiciones de la habitación seleccionada.</p>
+            <h4>Mascotas</h4>
+            <ul>
+                <li><span>Si estan permitidas.</span></li>
+            </ul>
+            <h4><span style="line-height: 1.428571429;">Niños y camas extra</span></h4>
+            <ul>
+                <li><span>Todos los niños son bienvenidos.</span></li>
+                <li><span>Gratis! Un menor de 10 años se pueden alojar gratis utilizando las camas existentes.</span>
+                </li>
+                <li><span>Un menor de 2 años gratis en cuna de un niño.</span></li>
+                <li><span>El número máximo de cunas en la habitación: 1.</span></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div th:include="components/footer.html"></div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

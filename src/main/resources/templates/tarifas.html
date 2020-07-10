@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--para usar bootstrap  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- iconos de materialize -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Cardo:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
+
+
+    <!-- link CSS -->
+    <link rel="stylesheet" href="../static/css/mystyle.css" th:href="@{/css/mystyle.css}">
+
+    <!-- logo en pestaña de navegacion -->
+    <link rel="icon" type="imagen/png" href="../static/img/letra-h.png" th:href="@{/img/letra-h.png}">
+
+
+
+    <title>Hotel Sierra Inn</title>
+</head>
+
+<body>
+   <!-- barra de navegacion -->
+   <div th:include="components/nav.html"></div>
+
+   <!-- imagen de fondo -->
+   <section class="banner">
+  </section>   
+
+  <!-- tabla de tarifas -->
+ 
+      <div class="container margen2 margen-button">
+          <div class="row">
+              <div class="col-12">
+                <table class="table table-hover" id="tabla-tarifas">
+                    <thead>
+                      <tr>
+                        <th scope="col">Habitacion</th>
+                        <th scope="col">1 noche</th>
+                        <th scope="col">2 noches</th>
+                        <th scope="col">una semana</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">single-base</th>
+                        <td>$ 2.500</td>
+                        <td>$ 3.800</td>
+                        <td>$ 10.000</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">doble</th>
+                        <td>$ 2.850</td>
+                        <td>$ 4.500</td>
+                        <td>$ 18.000</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">suite-queen</th>
+                        <td>$ 4.500</td>
+                        <td>$ 7.500</td>
+                        <td>$ 28.000</td>
+
+                      </tr>
+                    </tbody>
+                  </table>
+
+              </div>
+          </div>
+      </div>
+  
+
+  <div class="container" id="desc-tarifa">
+      <div class="row" >
+          <div class="col-4">
+            <hr id="linea-vertical">
+          </div>
+          <div class="col-8" id="desc">
+            <p class="parrafouno">Te garantizamos las mejores condiciones reservando siempre en nuestra web.</p>
+            <br>
+            <p>Reservando DIRECTAMENTE CON NOSOTROS, OBTIENES UN 10% DE DESCUENTO ABONANDO EN EFECTIVO. Las tarifas incluyen desayuno buffet, WiFi sin cargo en todo el hotel</p>
+            <p>Nuestro staff puede atenderte en español, inglés y portugués. Vas a sentirte como en casa!</p>
+            <p>Nuestras habitaciones cuentan con camas grandes, TV LCD, secador de cabello y caja de seguridad.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container" id="promociones">
+        <div class="item-page" >         
+            <div class="page-header">
+                <h4>Tarifas promocionales</h2>
+                    </div><hr>
+                        <div>
+                            <p><span style="font-size: 12pt;"><strong><span style="font-family: arial, helvetica, sans-serif; line-height: 1.3em;">Promociones permanentes de Temporada Baja 2020 - desde el 1/09/20 hasta el 21/10/20 inclusive</span></strong></span></p>
+                            <p><span style="font-size: 12pt;"><strong><span style="font-family: arial, helvetica, sans-serif; line-height: 1.3em;">(Temporada baja se entiende fuera de fines de semana largos, vacaciones escolares argentinas y fiestas locales)</span></strong></span></p>
+                            <p><span style="font-size: 10pt;"><span style="font-family: arial,helvetica,sans-serif;">T</span>odas nuestras promociones son no acumulables entre sí.</span></p>
+                            <p><span style="font-family: tahoma, sans-serif; font-size: 10pt;"><span style="background-color: #fce3fa;"><strong>ENTRESEMANA ENCANTADA:&nbsp;</strong></span>De domingos a jueves&nbsp;10 % de descuento.&nbsp;Esta promo es aplicable a todos nuestros tipos de habitaciones,&nbsp;<strong>por ejemplo habitación doble $ 2.835 por noche con tarjeta y $&nbsp;2.520 de contado efectivo.</strong></span></p>
+                            <p><span style="font-family: tahoma, sans-serif; font-size: 10pt;"><span style="background-color: #fce3fa;"><strong>FIN DE SEMANA RELAX:&nbsp;</strong></span><span style="color: #333333;">para dos personas, dos noches en habitación doble, con desayuno buffet y late check out hasta las 19 hs el día de partida (sujeto a disponibilidad), además de acceso a la piscina climatizada,&nbsp;</span>incluidos&nbsp;<span style="background-color: #fce3fa;">dos masajes de bienvenida de 30 minutos&nbsp;o uno de 60 minutos</span>.<span style="color: #ff0000;">&nbsp;</span><strong>Todo por $ 7.450 con tarjeta y $&nbsp;6.800 de contado efectivo.</strong></span></p>
+                            <p><span style="font-family: tahoma, sans-serif; font-size: 10pt;"><span style="background-color: #fce3fa;"><b>DOS&nbsp;</b><b>DÍAS</b><b>&nbsp;- UNA NOCHE (contado efectivo):</b></span><b>&nbsp;</b><span style="color: #333333;">venga temprano, disfrute del día, pase una noche de alojamiento para dos personas en habitación doble, con desayuno buffet, acceso a la piscina climatizada y puede disfrutar de su habitación y del hotel&nbsp;</span>hasta las 19 hs&nbsp;<span style="color: #333333;">del día de partida.&nbsp;</span><strong>Todo por $ 3.150 de contado efectivo o $ 3.400 con tarjeta en 1 cuota o por mercadopago.&nbsp;</strong><span style="color: #333333;">Válido también para otros tipos de habitación, consulte precios.</span></span></p>
+                            <p><span style="font-family: tahoma, sans-serif; font-size: 10pt;"><strong><span style="background-color: #fce3fa;">SEMANA COMPLETA:&nbsp;</span> quédese 7 noches y pague solamente 6!&nbsp;</strong>Por ejemplo en habitación doble una semana completa por&nbsp;<strong>$&nbsp;18.900 con tarjeta y $ 16.800 de contado efectivo.&nbsp;</strong>Válido también para otros tipos de habitación, consulte precios.&nbsp;</span></p>
+                            <p>&nbsp;</p>
+                            <p><span style="font-size: 10pt;"><strong><span style="font-family: arial, helvetica, sans-serif;">Servicios inlcuidos nuestras tarifas promocionales</span></strong></span></p>
+                        <ul style="list-style-type: disc;">
+                            <li><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">Aire acondicionado o calefacción central, frigobar y TV 32" LED en todas las habitaciones</span></li>
+                            <li><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">Todas las habitaciones tienen baño en suite con amenities y secador de cabello</span></li>
+                            <li><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">Desayuno buffet</span></li>
+                            <li><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">Cobertura de WI-FI en lobby, bar y pérgola exterior</span></li>
+                            <li><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">Estación saludable de gimnasia al aire libre</span></li>
+                            <li><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">Piscina climatizada cubierta a 30-32 grados centígrados</span></li>
+                            <li><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">Piscina natural exterior</span></li>
+                            <li><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">Sala de juegos con pool, metegol y ping pong</span></li>
+                            <li><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">Impuestos y tasas turísticas de ley</span></li>
+                            <li style="background-image: none;"><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">------------------------------</span></li>
+                        </ul>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <h1><span style="font-family: arial,helvetica,sans-serif; font-size: 14pt;">Política tarifaria</span></h1>
+                    <ul style="list-style-type: disc;">
+                        <li><span style="font-family: arial,helvetica,sans-serif; font-size: 10pt;">Garantía: para garantizar su reserva le pediremos un depósito o transferencia bancaria a nuestra cuenta o puede hacerlo mediante una autorización de débito a su tarjeta de crédito o MercadoPago. Esta seña debe ser como mínimo equivalente a una noche de alojamiento. La seña garantiza su reserva para toda la primer noche y hasta las 11 horas del día siguiente.</span></li>
+                        <li><span style="font-family: arial,helvetica,sans-serif; font-size: 10pt;">Los precios publicados pueden variar sin aviso previo alguno. Regirá la tarifa del día de pago.</span></li>
+                        <li><span style="font-family: arial,helvetica,sans-serif; font-size: 10pt;">Política de congelación de tarifas: Las únicas tarifas que se congelan son las que se encuentran pagas por anticipado. La seña acreditada en forma anticipada congela la tarifa del equivalente abonado.</span></li>
+                        <li><span style="font-family: arial,helvetica,sans-serif; font-size: 10pt;">Política de cancelaciones: Aceptamos cancelaciones de reservas hasta&nbsp;5 días&nbsp;antes del día del check-in. Pasado este tiempo, se cobrará la primera noche de la estadía en concepto de penalidad. Si el huésped no se presenta en el hotel el día indicado en la reserva se cobrará una noche por habitación reservada.</span></li>
+                    </ul>
+                    <p>&nbsp;</p>
+                    <hr>
+                    <p style="margin-bottom: -50px;">&nbsp;</p></div>
+                </div>
+            </div>
+
+ 
+  <div th:include="components/footer.html"></div>
+  <div th:include="components/scripts.html"></div>
+           
+</body>
+</html>

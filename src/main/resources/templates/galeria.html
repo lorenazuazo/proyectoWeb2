@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--para usar bootstrap  -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- iconos de materialize -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+ 	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Cardo:700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
+
+  
+  <!-- link CSS -->
+  <link rel="stylesheet" href="../static/css/mystyle.css" th:href="@{/css/mystyle.css}">
+  <!-- logo en pestaña de navegacion -->
+  <link rel="icon" type="imagen/png" href="../static/img/letra-h.png" th:href="@{/img/letra-h.png}">
+
+  <title>Hotel Sierra Inn</title>
+</head>
+<body style="background: #292B2C;">
+  <!-- barra de navegacion -->
+  <div th:include="components/nav.html"></div>
+
+<div class="container margen2">
+  <div class="row">
+    <div class="col-12 mb-3">
+       <div class="card-deck">
+         <div class="card">
+           <img src="../static/img/hab-cama-simple.jpg" th:src="@{/img/hab-cama-simple.jpg}" class="card-img-top fotos" alt="habitacion simple">
+          </div>
+          <div class="card">
+            <img src="../static/img/hab-rosa.jpg" th:src="@{/img/hab-rosa.jpg}" class="card-img-top fotos" alta="habitacion rosa">
+          </div>
+          <div class="card">
+            <img src="../static/img/hab-roja.jpg" th:src="@{/img/hab-roja.jpg}" class="card-img-top fotos" alt="habitacion roja">
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-12">
+       <div class="card-deck">
+         <div class="card">
+           <img src="../static/img/pileta-interna.jpg" th:src="@{/img/pileta-interna.jpg}" class="card-img-top fotos" alt="pileta del hotel">
+          </div>
+          <div class="card">
+            <img src="../static/img/GYM.jpg" th:src="@{/img/GYM.jpg}" class="card-img-top fotos" alt="gimnasio del hotel">
+          </div>
+          <div class="card">
+            <img src="../static/img/banio.jpg" th:src="@{/img/banio.jpg}" class="card-img-top fotos" alt="banio de una habitacion" >
+          </div>
+        </div>
+    </div>
+  </div>
+
+</div>   
+  
+  <div th:include="components/footer.html"></div>
+  <div th:include="components/scripts.html"></div>  
+</body>
+</html>

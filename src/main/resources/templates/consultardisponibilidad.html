@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns= "http //www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" 
+        xmlns:sec="http://www.thymeleaf.org">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!--para usar bootstrap  -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- font-awesom -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- iconos de materialize -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+ 	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Cardo:700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
+
+  
+  <!-- link CSS -->
+  <link rel="stylesheet" href="/static/css/mystyle.css" th:href="@{/css/mystyle.css}">
+  
+    <!-- logo en pestanea de navegacion -->
+  <link rel="icon" type="imagen/png" href="../static/img/letra-h.png" th:href="@{/img/letra-h.png}">
+
+
+  <title >Hotel Sierras Inn</title>
+</head>
+
+<body data-spy="scroll" data-target="#myScrollspy">
+
+  <div th:include="components/nav.html" th:remove="tag"></div>
+  
+  <!-- formulario de reserva -->
+
+  <div class="margen imagen1">
+    <div id="booking" class="section">
+      <div class="section-center">
+        <div class="container">
+          <div class="row">
+            <div class="booking-form">
+              <div class="form-header">
+                <h1>[[${#httpServletRequest.remoteUser}]] Haga su Reserva</h1>
+              </div>
+              <form id="formReserva" th:object="${reservaForm}" method="post" th:action="@{/disponibilidad}" autocomplete="off">
+                <!-- para establecer la fecha de reserva -->
+                <input class="form-group" type="hidden" name="fechaReserva" th:value="${#temporals.format(localDate, 'yyyy-MM-dd')}" id="fechaReserva" >
+                <input class="form-group" type="hidden" name="username" th:value="${#httpServletRequest.remoteUser}" id="username" >
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <span class="form-label">Nombre</span>
+                            <input class="form-control" type="text" id="nombre" name="nombre" required>
+                            <div class="alert-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">
+                              Error en Nombre</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <span class="form-label">Apellido</span>
+                            <input class="form-control" type="text" id="apellido" name="apellido" required>
+                            <div class="alert-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}">
+                              Error apellido</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <span class="form-label">Dni</span>
+                            <input class="form-control" type="text" id="nombre" name="dni" required>
+                            <div class="alert-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}">
+                              Error dni</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <span class="form-label">Dia de Entrada</span>
+                      <input class="form-control" type="date" id="fechaReservaIn" onkeydown="return false"  th:field="*{fechaEntrada}" th:value="${#temporals.format(localDate, 'yyyy-MM-dd')}" required>
+                      <div class="alert-danger" th:if="${#fields.hasErrors('fechaEntrada')}" th:errors="*{fechaEntrada}"> Error en fecha Entrada</div>
+                    </div>
+                    <span class="in-out hidden-xs hidden-sm">&#8652;</span>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <span class="form-label">Dia de Salida</span>
+                      <input class="form-control" type="date" id="fechaReservaOut" onkeydown="return false"  th:field="*{fechaSalida}" th:value="${#temporals.format(localDate, 'yyyy-MM-dd')}" required>
+                      <div class="alert-danger" th:if="${#fields.hasErrors('fechaSalida')}" th:errors="*{fechaSalida}"> Error en fecha Salida</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <span class="form-label">N<sup>o</sup>de Habitaciones</span>
+                      <select class="form-control" th:field="${reservaForm.cantHabitaciones}">
+                        <option th:value="1">1 Habitacion</option>
+                        <option th:value="2">2 Habitaciones</option>
+                        <option th:value="3">3 Habitaciones</option>
+                        <option th:value="4">4 Habitaciones</option>
+                        <option th:value="5">5 Habitaciones</option>
+                        <option th:value="6">6 Habitaciones</option>
+                      </select>
+                      <span class="select-arrow"></span>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <span class="form-label">Adultos</span>
+                      <select class="form-control" th:field="${reservaForm.cantAdultos}">
+                        <option th:value="1">1 Adulto</option>
+                        <option th:value="2">2 Adultos</option>
+                        <option th:value="3">3 Adultos</option>
+                        <option th:value="4">4 Adultos</option>
+                        <option th:value="5">5 Adultos</option>
+                        <option th:value="6">6 Adultos</option>
+                        <option th:value="7">7 Adultos</option>
+                      </select>
+                      <span class="select-arrow"></span>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <span class="form-label">Niños</span>
+                      <select class="form-control" th:field="${reservaForm.cantNinios}">
+                        <option th:value="0">0 Niño</option>
+                        <option th:value="1">1 Niño</option>
+                        <option th:value="2">2 Niños</option>
+                        <option th:value="3">3 Niños</option>
+                        <option th:value="4">4 Niños</option>
+                        <option th:value="5">5 Niños</option>
+                      </select>
+                      <span class="select-arrow"></span>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <span class="form-label">Monto</span>
+                      <input class="form-control" th:field="${reservaForm.tarifaReserva}" type="number" id="monto" disabled="disabled"> 
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-btn">
+                        <input type="submit" class="btn btn-primary" id="btnReservar" value="Verificar Disponibilidad">
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div th:include="components/footer.html" th:remove="tag"></div>
+  <div th:include="components/scripts.html" th:remove="tag"></div>
+ 
+</body>
+
+  <!-- script del formulario-->
+  <script type="text/javascript" th:src="@{/js/formulario-reserva.js}"></script>
+
+</html>

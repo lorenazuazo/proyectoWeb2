@@ -1,0 +1,448 @@
+.margen {
+    margin-top: 5rem;
+}
+
+.margen2 {
+    margin-top: 7rem;
+}
+.margen-button{
+    margin-bottom: 14rem;
+}
+.banner{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/hb-suiteDoble.jpg);
+    opacity: .7;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.icons-design {
+    vertical-align: middle;
+    color: rgb(168, 143, 28);
+}
+
+.imagen1 {
+    background-image: url(../img/canada.jpg);
+    width: 100%;
+    height: 500px;
+    background-size: cover;
+    position: relative;
+    opacity: 0.80;
+}
+
+.imagen3{
+    background-image: url(../img/hb-suiteDoble.jpg);
+    width: 100%;
+    height: 500px;
+    background-size: cover;
+    position: relative;
+    opacity: 0.60;
+}
+#btnmodalregistrarusuario{
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:10px;
+    padding-right:10px;
+}
+
+.btn {
+    background-color: rgb(168, 143, 28) !important;
+    color: rgb(14, 13, 13) ;
+}
+
+.btn:hover{
+    color: #fff;
+}
+
+
+/*galeria de fotos*/
+.fotos:hover{
+    transform: scale(1.15);
+}
+
+
+#nosotros{
+    position: relative;
+    margin-top: 100px;
+}
+
+.main-section {
+    margin: 0 auto;
+    margin-top: 5%;
+}
+
+.modal-content{
+    opacity: 0.95;
+}
+
+button {
+    width: 60%;
+    margin: 5px 0 25px;
+    background-color: rgb(168, 143, 28) !important;
+    font-size: 1.25rem !important;
+}
+
+.boton{
+    width: 30%;
+    margin: 5px 0 25px;
+    font-size: 1.25rem !important;
+}
+
+#btn-cerrarsesion{
+	width: 90%;
+	height: 30%;
+    margin: 5px 0 25px;
+    font-size: 1rem !important;
+}
+#btncerrarsesion{
+    background-color: transparent;
+    border: 0;
+    color: black;
+    cursor: pointer;
+    display: inline;
+    margin-left: 20px;
+    outline: none;
+    padding: 0px;
+    box-sizing: content-box;
+}
+
+#btncerrarsesion:hover {
+    background-color: rgb(247, 250, 252);
+  }
+.newsletter{
+    background-color: rgb(227, 234, 243);
+    
+}
+
+.background_title {
+    font-family: Playfair Display, sans-serif;
+    text-transform: uppercase;
+    font-size: 100px;
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1 !important;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.10;
+    color: rgb(70, 68, 68);
+}
+
+.titulo {
+    color: #B61919;
+    position: relative;
+    margin-top: 50px;
+}
+
+#contrasena-group{
+    margin-top: 20px;
+}
+#modal-content{
+    margin-bottom: 0px;
+}
+
+span.subtitle {
+    font-weight: 300;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 3px;
+    margin-top: 100px;
+}
+
+.wpb_wrapper {
+    position: relative;
+    margin-top: 20px;
+}
+
+#parrafonosotros{
+    text-align: center;
+    font-family: "Playfair Display", Arial, Tahoma, sans-serif;
+}
+
+#promociones{
+    background-color: rgb(237, 241, 253);
+
+}
+/*tabla de tarifas*/
+
+#tabla-tarifas{
+    background-color: aliceblue;
+    margin-top: 50px;
+}
+
+#linea-vertical{
+    border: none;
+    border-left: 10px solid hsla(200, 10%, 50%,100);
+    height: 100%;
+    width:1rem;     
+}
+
+#desc-tarifa{
+    background-image: url(../img/fondo-tarifas.jpg);
+    width: 100%;
+    height: 260px;
+    background-size: cover;
+    position: relative;
+    opacity: 0.80;
+
+}
+
+#desc{
+    margin-top: 20px;
+}
+
+#parrafouno{
+    font-size: 14px ;
+    line-height: 19px;
+    letter-spacing: 0px;
+    font-family: "Playfair Display", Arial, Tahoma, sans-serif;
+}
+
+
+/*formulario de reserva*/
+input[type=date]::-webkit-inner-spin-button {/*para que no aparezca boton de subir o bajar los dias*/
+    -webkit-appearance: none;
+    display: none;
+}
+input[type=number]::-webkit-inner-spin-button {/*para que no aparezca boton de subir o bajar los numeros*/
+    -webkit-appearance: none;
+    display: none;
+}
+
+#btnReservar{
+    margin-left: 450px;
+}
+
+.section {
+	position: relative;
+	height: 100vh;
+}
+
+.section .section-center {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+#booking {
+	font-family: 'Josefin Sans', sans-serif;
+    background-position: center;
+    height: 500px;
+}
+
+#booking::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	background: rgba(0, 0, 0, 0.2);
+}
+
+.booking-form {
+	background-color: #fff;
+	max-width: 768px;
+	width: 100%;
+	margin: auto;
+	padding: 30px;
+	border-radius: 3px;
+}
+
+.booking-form .form-header {
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+.booking-form .form-header h1 {
+	font-family: 'Cardo', serif;
+	font-weight: 700;
+	text-transform: capitalize;
+	font-size: 38px;
+	color: #0c0c09;
+	margin-top: 0;
+	margin-bottom: 0px;
+}
+
+.booking-form .form-group {
+	position: relative;
+	margin-bottom: 30px;
+}
+
+.booking-form .form-control {
+	background-color: #fff;
+	height: 50px;
+	padding: 0px 20px;
+	border: 1px solid #e1e1e1;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	border-radius: 3px;
+	color: #6b6b6d;
+	font-size: 14px;
+}
+
+.booking-form select.form-control+.select-arrow {
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	width: 24px;
+	text-align: center;
+	pointer-events: none;
+	background: #e1e1e1;
+	height: 50px;
+	line-height: 50px;
+	color: rgba(107, 107, 109, 0.3);
+	font-size: 14px;
+	border-radius: 0px 3px 3px 0px;
+	transition: 0.2s all;
+}
+
+
+.booking-form select.form-control:focus+.select-arrow {
+	background: rgb(168, 143, 28);
+	color: #fff;
+}
+
+.booking-form .form-label {
+	font-size: 14px;
+	font-weight: 700;
+	margin-bottom: 3px;
+	display: inline-block;
+	color: rgb(168, 143, 28);
+	text-transform: capitalize;
+}
+
+.booking-form .in-out {
+	position: absolute;
+	font-size: 24px;
+	color: rgb(168, 143, 28);
+	right: -15px;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	z-index: 20;
+	text-align: center;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	bottom: 25px;
+}
+
+.booking-form .form-btn {
+	margin-top: 23px;
+}
+
+.booking-form .submit-btn {
+	color: #fff;
+	background-color:rgb(168, 143, 28);
+	font-weight: 700;
+	height: 50px;
+	border: none;
+	display: block;
+	font-size: 14px;
+	width: 100%;
+	text-transform: capitalize;
+	border-radius: 3px;
+}
+.booking-form .submit-btn:hover{
+    color: black;
+}
+
+/*==================== 
+	Footer 
+====================== */
+footer .main-footer {
+    padding: 20px 0;
+    background: #252525;
+}
+
+footer ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+.footer-copyright {
+    background: #222;
+    padding: 5px 0;
+}
+
+.footer-copyright p {
+    color: #969696;
+    margin: 2px 0 0;
+}
+.typo-light h2,
+.typo-light h5,
+.typo-light p,
+.typo-light span
+ {
+    color: #fff;
+}
+
+ul.social-footer2 li {
+    display: inline-block;
+    padding: 0;
+}
+
+ul.social-footer2 li a {
+    display: block;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+}
+.icon-social:hover{
+    transform: scale(1.60);
+}
+
+.widget {
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+.widget.no-box {
+    padding: 0;
+    background-color: transparent;
+    margin-bottom: 40px;
+}
+
+.widget.subscribe p {
+    margin-bottom: 18px;
+}
+
+.widget li a {
+    color: #e6ded6;
+}
+
+.widget-title {
+    margin-bottom: 20px;
+}
+
+.widget-title span {
+    background: #839FAD none repeat scroll 0 0;
+    display: block;
+    height: 1px;
+    margin-top: 25px;
+    position: relative;
+    width: 20%;
+}
+
+.widget-title span::after {
+    background: inherit;
+    content: "";
+    height: inherit;
+    position: absolute;
+    top: -4px;
+    width: 50%;
+}
+
+
+
+
+
+

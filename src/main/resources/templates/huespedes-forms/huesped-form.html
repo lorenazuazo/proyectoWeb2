@@ -1,0 +1,42 @@
+<form id="huespedForm" th:object="${huespedForm}" method="post" th:action="${editMode}?@{/modificaciones/editar-Huesped}:@{/modificaciones/crear-Huesped}" autocomplete="off">
+    <!--Es necesario para poder pasar la validacion del Model-->
+	<input class="form-control" type=hidden th:field="${huespedForm.id}"  th:if="${editMode}">    
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre" th:field="*{nombre}" placeholder="Nombre">
+            <div class="alert-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">
+                Error en Nombre</div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="apellido">Apellido</label>
+            <input type="text" class="form-control" id="apellido" th:field="*{apellido}"placeholder="Apellido">
+            <div class="alert-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}">
+                Error en Apellido</div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="dni">Dni</label>
+            <input type="text" class="form-control" id="dni" th:field="*{dni}"placeholder="Dni">
+            <div class="alert-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}">
+                Error en Dni</div>
+        </div>
+          <div class="form-group col-md-3">
+            <label for="sexo">ID Reservas Asignadas</label>
+            <ul>
+                <li th:each="res:${huespedForm.reserva}" id="checkbox" >
+                    <input type="checkbox" name="searchValues" th:field="${huespedForm.reserva}" th:value="${res.idReserva}"/>
+                    <label th:text="${res.idReserva}"></label>
+                    <div class="alert-danger" th:if="${#fields.hasErrors('reserva')}" th:errors="*{reserva}">
+                      Error en reservaasgnada</div>
+                </li>
+              </ul>
+          </div> 
+          
+
+        <div class="col-lg-12 text-center">
+            <a class="btn btn-secondary btnformuser" th:href="@{/modificaciones/huesped/cancel}">Cancelar</a>
+            <input type="submit" class="btn btn-primary btnformuser" th:value="${editMode}?'Guardar Cambios':'Crear huesped'">
+        </div>
+        <div class="alert alert-danger text-center" th:if="${formErrorMessage}" th:text="${formErrorMessage}">
+            Error</div>
+</form>

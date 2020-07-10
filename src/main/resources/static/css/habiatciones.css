@@ -1,0 +1,81 @@
+
+/*contenedor con la imagen y palabra habitacion*/
+.contenedor{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+
+}
+
+div > img{
+    width: 100%;
+}
+ 
+.centrado{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font: oblique bold 600% cursive;
+    color:black;
+    opacity: 0.7;
+}
+
+/*text */
+.containerdos{
+    color: white; 
+}
+ ul > li { color: rgb(168, 143, 28); } 
+ 
+ ul > li > span { color: rgb(252, 248, 248); } 
+
+.sb-packages {
+    text-align: left;
+    font-family: "century_gothic-webfont", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    margin-bottom: 20px;
+    font-size: 24px;
+    line-height: 55px;
+}
+
+
+
+/*modal*/
+.modalContainer {
+    display: none; 
+    position: fixed; 
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modalContainer .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid lightgray;
+    border-top: 10px solid #58abb7;
+    width: 60%;
+}
+
+.modalContainer .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.modalContainer .close:hover,
+.modalContainer .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}

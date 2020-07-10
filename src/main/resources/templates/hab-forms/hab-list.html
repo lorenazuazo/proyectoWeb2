@@ -1,0 +1,29 @@
+<div class="table-responsive">
+	<table id="ListDataTable" class="table table-bordered table-hover table-striped">
+		<thead class="thead-light">
+		<tr>
+			<th scope="col">Id</th>
+			<th scope="col">Numero habitacion</th>
+			<th scope="col">Tipo Habitacion</th>
+			<th scope="col">estado</th>
+			<th></th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr th:each="habitacion:${habitacionList}">
+			<th scope="row" th:text="${habitacion.id_habitacion}"></th>
+			<td th:text="${habitacion.numerohabitacion}"></td>
+			<td th:text="${habitacion.tipoHabitacion.clase}"></td> 
+			<td th:text="${habitacion.estado}"></td>
+			<td>
+				<a title="editar" href="#" th:href="@{'/modificaciones/editHabitacion/'+ ${habitacion.id_habitacion}}"><i class="fas fa-edit"></i></a>
+				<a title="eliminar" href="#" th:onclick="'javascript:confirmDelete(\''+ ${habitacion.id_habitacion} +'\');'"><i class="fas fa-user-times"></i></a>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<!-- mensaje que muestra que no se elimino la habitacion -->
+	<div id="deleteError" th:if="${deleteError}" class="alert alert-danger text-center" role="alert">
+		<span th:text="${deleteError}"></span>
+	</div>
+</div>

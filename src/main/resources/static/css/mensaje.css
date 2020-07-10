@@ -1,0 +1,43 @@
+.jumbotron {
+    background: rgb(168, 143, 28);
+    color: #FFF;
+    border-radius: 0px;
+    }
+.jumbotron-sm { 
+    padding-top: 24px;
+    padding-bottom: 24px; 
+    }
+.jumbotron small {
+    color: #FFF;
+    }
+.h1 small {
+    font-size: 24px;
+    }
+label{
+    color: #FFF;
+}
+#btnContactUs{
+    background-color: rgb(168, 143, 28) !important;
+}
+/*google maps*/
+.map-responsive{
+    overflow:hidden;
+    padding-bottom:60%;
+    position:relative;
+    height:0;
+}
+.map-responsive iframe{
+    left:25%;
+    top:20%;
+    height:50%;
+    width:50%;
+    position:absolute;
+}
+#parrafomaps{
+    text-align: center;
+    font-family: "Playfair Display", Arial, Tahoma, sans-serif;
+    font-size: 1.5rem;
+    color: #e1e1e1;
+    margin-top: 7rem;
+    text-decoration: underline;
+}

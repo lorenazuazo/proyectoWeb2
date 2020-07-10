@@ -1,0 +1,58 @@
+<form id="habForm" th:object="${habForm}" method="post" th:action="${editMode}?@{/modificaciones/editHabitacion}:@{/modificaciones/crearHabitacion}" autocomplete="off"> 
+  <input class="form-control" type=hidden th:field="${habForm.id_habitacion}"  th:if="${editMode}"> 
+  <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="numerohabitacion">Habitacion</label>
+            <input type="text" class="form-control" id="habitacion" th:field="*{numerohabitacion}" placeholder="Numero de habitacion">
+            <div class="alert-danger" th:if="${#fields.hasErrors('numerohabitacion')}" th:errors="*{numerohabitacion}"> 
+                Error en Numero</div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="tipoHabitacion">Tipo habitacion</label>
+          <select th:field="${habForm.tipoHabitacion}" class="form-control" id="tipoHabitacion">
+            <option th:each="tipo:${tipos}" th:value="${tipo.id_tipo}" th:text="${tipo.clase}"></option>
+          </select>
+          <div class="alert-danger" th:if="${#fields.hasErrors('tipoHabitacion')}" th:errors="*{tipoHabitacion}">Error en Clase</div> 
+        </div>   
+        <div class="form-group col-md-6">
+            <label for="tarifa">Tarifa</label>
+            <input type="number" class="form-control" id="tarifa" th:field="*{tarifa}" placeholder="Tarifa">
+            <div class="alert-danger" th:if="${#fields.hasErrors('tarifa')}" th:errors="*{tarifa}">
+                Error en tarifa</div>
+        </div>
+          <div class="form-group col-md-6">
+            <label for="descripcion">Descripcion</label>
+            <input type="text" class="form-control" id="descripcion" th:field="*{descripcion}" placeholder="Descripcion">
+            <div class="alert-danger" th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion">
+                Error en Descripcion</div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="cantidadhuesped">Cantidad Huespedes</label>
+          <input type="number" class="form-control" id="cantidadhuesped" th:field="*{cantidadhuesped}" placeholder="Cantidad huespedes">
+          <div class="alert-danger" th:if="${#fields.hasErrors('cantidadhuesped')}" th:errors="*{cantidadhuesped">
+              Error en Cantidd huesped</div>
+         </div> 
+         <div class="form-group col-md-6">
+          <label for="estado">Estado</label>
+          <select th:field="${habForm.estado}" class="form-control" id="estado">
+            <option th:each="estado:${T(com.web2.hotel.entities.Habitacion.EstadoHabitacion).values()}" th:value="${estado}" th:text="${estado}"></option>
+          </select>
+          <div class="alert-danger" th:if="${#fields.hasErrors('estado')}" th:errors="*{estado}">
+              Error en estado</div>
+        </div> 
+          <ul>
+            <li th:each="caracteristica:${caractHabitacion}" id="checkbox" >
+                <input type="checkbox" name="searchValues" th:field="*{caractehabitacion}" th:value="${caracteristica.id}"/>
+                <label th:text="${caracteristica.detalle}"></label>
+                <div class="alert-danger" th:if="${#fields.hasErrors('caractehabitacion')}" th:errors="*{caractehabitacion}">
+                  Error en Descripcion</div>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-12 text-center">
+          <a class="btn btn-secondary btnformuser" th:href="@{/modificaciones/habitaciones/cancel}">Cancelar</a>
+          <input type="submit" class="btn btn-primary btnformuser" th:value="${editMode}?'Guardar Cambios':'Crear habitacion'">
+        </div>
+        <div class="alert alert-danger text-center" th:if="${formErrorMessage}" th:text="${formErrorMessage}">
+            Error</div>
+</form>

@@ -1,0 +1,27 @@
+<div class="table-responsive">
+	<table id="ListDataTable" class="table table-bordered table-hover table-striped">
+		<thead class="thead-light">
+		<tr>
+			<th scope="col">Id</th>
+			<th scope="col">Detalle</th>
+			<th scope="col">Estado</th>
+			<th></th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr th:each="caract:${caractList}">
+			<th scope="row" th:text="${caract.id}"></th>
+			<td th:text="${caract.detalle}"></td>
+			<td th:text="${caract.estado}"></td>
+			<td>
+				<a title="editar" href="#" th:href="@{'/modificaciones/editar-Caracteristica/'+ ${caract.id}}"><i class="fas fa-edit"></i></a>
+				<a title="eliminar" href="#" th:onclick="'javascript:confirmDelete(\''+ ${caract.id} +'\');'"><i class="fas fa-user-times"></i></a>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<!-- mensaje que muestra que no se elimino la caract -->
+	<div id="deleteError" th:if="${deleteError}" class="alert alert-danger text-center" role="alert">
+		<span th:text="${deleteError}"></span>
+	</div>
+</div>

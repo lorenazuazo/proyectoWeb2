@@ -1,0 +1,44 @@
+	<div class="container" id="form-tipohabitacion" > 
+		<div class="col-mx-12 col-sm-12 main-section" id="myTab" role="tablist">
+			<ul class="nav nav-tabs justify-content-end">
+				<li class="nav-item">
+					<a class="nav-link" th:classappend="${listTab}" id="list-tab" data-toggle="tab" href="#list" role="tab"
+						aria-controls="list" aria-selected="false">Lista</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" th:classappend=" ${formTab}" id="form-tab" data-toggle="tab" href="#form" role="tab" aria-controls="form"
+						aria-selected="true">Formulario</a>
+				</li>
+			</ul>
+			<div class="tab-content" id="myTabContent">
+				<div class="tab-pane fade show" th:classappend="${listTab}"  id="list" role="tabpanel" aria-labelledby="list-tab">
+					<div class="card">
+						<div class="card-header">
+							<h4>Tipo de Habitacion</h4>
+						</div>
+						<div class="card-body">
+							<div th:include="tipohabitacion-forms/tipohab-list.html" th:remove="tag"></div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade show" th:classappend="${formTab}" id="form" role="tabpanel" aria-labelledby="form-tab">
+					<div class="card">
+						<div class="card-header">
+							<h4>Datos de los Tipos de Habitacion</h4>
+						</div>
+						<div class="card-body">
+							<div th:include="tipohabitacion-forms/tipohab-form.html" th:remove="tag"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane fade show active">
+				<div class="card">
+					<div class="card-footer">
+						<button type="submit" class="btn btn-info btn-lg btn-responsive " id="btncerrar"
+							onclick="Ocultar('form-tipohabitacion')">Cerrar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

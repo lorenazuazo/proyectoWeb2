@@ -1,0 +1,146 @@
+<form id="reservaForm" th:object="${reservaForm}" method="post" th:action="@{/modificaciones/editar-Reserva}" autocomplete="off">  
+    <div class="form-row">
+        <div class="form-group col-md-1">
+            <label for="id">Id reserva</label>
+            <input type="text" class="form-control" id="idReserva" th:field="*{idReserva}">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre" th:field="*{nombre}" placeholder="Nombre">
+            <div class="alert-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">
+                Error en Nombre</div>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="apellido">Apellido</label>
+            <input type="text" class="form-control" id="apellido" th:field="*{apellido}" placeholder="Apellido">
+            <div class="alert-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}">
+                Error en Apellido</div>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="dni">Dni</label>
+            <input type="text" class="form-control" id="dni" th:field="*{dni}"placeholder="Dni">
+            <div class="alert-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}">
+                Error en Dni</div>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="fechaEntrada">Fecha Entrada</label>
+            <input type="date" class="form-control" id="fechaEntrada" th:field="*{fechaEntrada}"placeholder="Fecha Entrada">
+            <div class="alert-danger" th:if="${#fields.hasErrors('fechaEntrada')}" th:errors="*{fechaEntrada}">
+                Error en fechaEntrada</div>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="fechaSalida">Fecha Salida</label>
+            <input type="date" class="form-control" id="fechaSalida" th:field="*{fechaSalida}" placeholder="Fecha Salida">
+            <div class="alert-danger" th:if="${#fields.hasErrors('fechaSalida')}" th:errors="*{fechaSalida}">
+                Error en fechaSalida</div>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="fechaReserva">Fecha de Reserva</label>
+            <input type="date" class="form-control" id="fechaReserva" th:field="*{fechaReserva}"placeholder="Fecha Reserva">
+            <div class="alert-danger" th:if="${#fields.hasErrors('fechaReserva')}" th:errors="*{fechaReserva}">
+                Error en fechaReserva</div>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="cantDias">Duracion</label>
+            <input type="number" class="form-control" id="cantDias" th:field="*{cantDias}" placeholder="Duracion">
+            <div class="alert-danger" th:if="${#fields.hasErrors('cantDias')}" th:errors="*{cantDias}">
+                Error en cantDias</div>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="cantHabitaciones">N° Habitaciones</label>
+            <input type="number" class="form-control" id="cantHabitaciones" th:field="*{cantHabitaciones}"placeholder="N° Habitaciones">
+            <div class="alert-danger" th:if="${#fields.hasErrors('cantHabitaciones')}" th:errors="*{cantHabitaciones}">
+                Error en cantHabitaciones</div>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="cantAdultos">N° Adultos</label>
+            <input type="number" class="form-control" id="cantAdultos" th:field="*{cantAdultos}"placeholder="N° Adultos">
+            <div class="alert-danger" th:if="${#fields.hasErrors('cantAdultos')}" th:errors="*{cantAdultos}">
+                Error en cantAdultos</div>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="cantNinios">N° Ninios</label>
+            <input type="number" class="form-control" id="cantNinios" th:field="*{cantNinios}"placeholder="N° Ninios">
+            <div class="alert-danger" th:if="${#fields.hasErrors('cantNinios')}" th:errors="*{cantNinios}">
+                Error en cantNinios</div>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="tarifaReserva">Costo Reserva</label>
+            <input type="number" class="form-control" id="tarifaReserva" th:field="*{tarifaReserva}"placeholder="Tarifa Reserva">
+            <div class="alert-danger" th:if="${#fields.hasErrors('tarifaReserva')}" th:errors="*{tarifaReserva}">
+                Error en tarifaReserva</div>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="estado">Estado</label>
+            <select th:field="${reservaForm.estado}" class="form-control" id="estado">
+              <option th:each="estado:${T(com.web2.hotel.entities.Reservas.Estado).values()}" th:value="${estado}" th:text="${estado}"></option>
+            </select>
+            <div class="alert-danger" th:if="${#fields.hasErrors('estado')}" th:errors="*{estado}">
+                Error en estado</div>
+          </div>      
+          <div class="form-group col-md-3">
+            <label for="usuario">Reserva hecha por</label>
+            <select th:field="${reservaForm.usuario}" class="form-control" id="usuario">
+              <option th:each="usuario:${usuariosList}" th:value="${usuario.id}" th:text="${usuario.username}" ></option>
+            </select>
+            <div class="alert-danger" th:if="${#fields.hasErrors('usuario')}" th:errors="*{usuario}">
+                Error en usuario</div>
+          </div>
+          <ul>
+            <li th:each="habitacion:${reservaForm.habitacion}" id="checkbox" >
+                <input type="checkbox" name="searchValues" th:field="*{habitacion}" th:value="${habitacion.id_habitacion}" th:text=" Habitacion "/>
+                <label th:text="${habitacion.numerohabitacion}"></label>
+                <div class="alert-danger" th:if="${#fields.hasErrors('habitacion')}" th:errors="*{habitacion}" >
+                  Error en habitacion</div>
+            </li>
+          </ul>
+        <div class="col-lg-12 text-center">
+            <a class="btn btn-secondary btnformuser" th:href="@{/modificaciones/reserva/cancel}">Cancelar</a>
+            <a class="btn btn-secondary btnformuser" th:href="@{/consultar-disponibilidad}">Nueva Reserva</a>
+            <input type="submit" class="btn btn-primary btnformuser" value="Guardar Cambios">
+        </div>
+        <div id="campos"></div>
+            <label for="huespedGrupo">Agregar Huesped a la reserva</label>
+            <table class="table table-sm" id="tablahuesped">
+                <thead>
+                  <tr style="background-color: rgb(168, 143, 28);">
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Dni</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="huesped:${reservaForm.huespedGrupo}">
+                    <td scope="row" th:text="${huesped.nombre}" th:field="${huesped.nombre}"></td>
+                    <td th:text="${huesped.apellido}" th:field="${huesped.apellido}"></td>
+                    <td th:text="${huesped.dni}" th:field="${huesped.dni}"></td>
+                    <td><input class="form-check-input" type="checkbox" th:field="${reservaForm.huespedGrupo}" th:value="${huesped.id}" checked>
+                    </td>
+                    <td>
+                   </tr>
+                 </tbody> 
+                </table> 
+</form>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <button type="button" class="btn btn-secondary btnformuser" onclick="agregahuesped()">Agregar Huesped</button>
+        </div>
+    </div>
+</div>
+
+<!-- mensaje que muestra que el huesped ya esta registrado -->
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div id="deleteError" th:if="${formErrorMessage}" class="alert alert-danger text-center" role="alert">
+                <span th:text="${formErrorMessage}"></span>
+            </div>        
+        </div>
+    </div>
+</div>
+
+
+

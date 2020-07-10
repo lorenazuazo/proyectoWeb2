@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns= "http //www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" 
+        xmlns:sec="http://www.thymeleaf.org">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!--para usar bootstrap  -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- font-awesom -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- iconos de materialize -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+ 	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Cardo:700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
+
+  
+  <!-- link CSS -->
+  <link rel="stylesheet" href="/static/css/mystyle.css" th:href="@{/css/mystyle.css}">
+  
+    <!-- logo en pestanea de navegacion -->
+  <link rel="icon" type="imagen/png" href="../static/img/letra-h.png" th:href="@{/img/letra-h.png}">
+
+  <title >Hotel Sierras Inn</title>
+</head>
+
+<body data-spy="scroll" data-target="#myScrollspy">
+
+  <div th:include="components/nav.html"></div>
+  
+  <!-- formulario de reserva -->
+  <div class="margen imagen1">
+    <div id="booking" class="section">
+      <div class="section-center">
+        <div class="container">
+          <div class="row">
+            <div class="booking-form">
+              <div class="form-header">
+                <h1>Comprobar Disponibilidad</h1>
+              </div>
+              <form id="formReserva" th:object="${reservaForm}" method="post" th:onsubmit="return validar_fechas()" th:action="@{/disponibilidad}" autocomplete="off">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <span class="form-label">Dia de Entrada</span>
+                      <input class="form-control" type="date" id="fechaReservaIn" name="fechaEntrada"  onkeydown="return false" required>
+                    </div>
+                    <span class="in-out hidden-xs hidden-sm">&#8652;</span>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <span class="form-label">Dia de Salida</span>
+                      <input class="form-control" type="date" id="fechaReservaOut" name="fechaSalida" th:value="${#temporals.format(localDate, 'yyyy-MM-dd')}" onkeydown="return false" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <span class="form-label">N<sup>o</sup>de Habitaciones</span>
+                      <select class="form-control" name="cantHabitaciones">
+                        <option th:value="1">1 Habitacion</option>
+                        <option th:value="2">2 Habitaciones</option>
+                        <option th:value="3">3 Habitaciones</option>
+                        <option th:value="4">4 Habitaciones</option>
+                        <option th:value="5">5 Habitaciones</option>
+                        <option th:value="6">6 Habitaciones</option>
+                      </select>
+                      <span class="select-arrow"></span>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <span class="form-label">Adultos</span>
+                      <select class="form-control" name="cantAdultos">
+                        <option th:value="1">1 Adulto</option>
+                        <option th:value="2">2 Adultos</option>
+                        <option th:value="3">3 Adultos</option>
+                        <option th:value="4">4 Adultos</option>
+                        <option th:value="5">5 Adultos</option>
+                        <option th:value="6">6 Adultos</option>
+                        <option th:value="7">7 Adultos</option>
+                      </select>
+                      <span class="select-arrow"></span>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <span class="form-label">Niños</span>
+                      <select class="form-control" name="cantNinios">
+                        <option th:value="0">0 Niño</option>
+                        <option th:value="1">1 Niño</option>
+                        <option th:value="2">2 Niños</option>
+                        <option th:value="3">3 Niños</option>
+                        <option th:value="4">4 Niños</option>
+                        <option th:value="5">5 Niños</option>
+                      </select>
+                      <span class="select-arrow"></span>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-btn">
+                      <button id="disponibilidad" class="submit-btn btn">Disponibilidad</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+
+  <!-- Sobre Nosotros -->
+  <div class="container" id="nosotros">
+    <div class="row">
+      <div class="col-12">
+        <div class="text-center">
+          <div class="background_title">BIENVENIDO</div>
+          <h2 class="titulo">Hotel Sierra Inn</h2>
+          <span class="subtitle">Resort & Spa</span>
+        </div>
+        <div class="wpb_wrapper">
+          <p id="parrafonosotros">Nuestro hotel posee un sello distintivo de calidad y servicio, equipado con
+            todos los requerimientos que sus huespedes necesitan. Contamos con 100 habitaciones, todas de categori­a
+            superior de 10 y 40m<sup>2</sup>, de las cuales 30 habitaciones Individual, 20 habitaciones Junior Suite, 20 Doble, 10 Superior, 10 habitaciones con Estudio, 10 Quad con balcon terraza. Todas las habitaciones estan
+            equipadas para satisfacer todos los requerimientos de nuestros huespedes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="newsletter">
+    <div class="text-center">
+      <div>
+        <br>
+        <h2 class="titulo">SUSCRIBITE A NUESTRO NEWSLETTER</h2>
+      </div>
+      <div>
+        <p style="text-align: center;">
+          Enterate de ofertas, eventos y todas las novedades de nuestro hotel.
+        </p>
+      </div>
+      <div class="modal-dialog text-center mt-3">
+        <div class="col-sm-12 main-section">
+            <div class="modal-content">
+                <form class="col-12 mt-3" th:object="${email}" th:action="@{/save-correo}" method="post">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">
+                              <i class="material-icons">email</i>
+                            </span>
+                        </div>
+                        <input type="email" class="form-control" placeholder="Email" aria-label="uemail"
+                            aria-describedby="basic-addon1" aria-required="true" name="correo">
+                    </div>
+                    <button type="submit" class="btn btn-primary ">Enviar</button>
+                    <div class="alert alert-danger text-center" th:if="${formErrorMessage}" th:text="${formErrorMessage}">Error Message</div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+  </div>
+
+  <div th:include="components/footer.html"></div>
+  <div th:include="components/scripts.html"></div>
+ 
+</body>
+
+  <!-- script del formulario-->
+  <script type="text/javascript" th:src="@{/js/formulario-reserva.js}"></script>
+
+</html>

@@ -1,0 +1,16 @@
+<form id="roleForm" th:object="${rolesForm}" method="post" th:action="${editMode}?@{/modificaciones/editar-Roles}:@{/modificaciones/crear-Roles}" autocomplete="off">
+    <input class="form-control" type=hidden th:field="${rolesForm.id}"  th:if="${editMode}">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="authority">Descripcion</label>
+            <input type="text" class="form-control" id="authority" th:field="*{authority}" placeholder="Tipo Rol">
+            <div class="alert-danger" th:if="${#fields.hasErrors('authority')}" th:errors="*{authority}">
+                Error en Roles</div>
+        </div> 
+        <div class="col-lg-12 text-center">
+            <a class="btn btn-secondary btnformuser" th:href="@{/modificaciones/rol/cancel}">Cancelar</a>
+            <input type="submit" class="btn btn-primary btnformuser" th:value="${editMode}?'Guardar Cambios':'Crear rol'">
+        </div>
+        <div class="alert alert-danger text-center" th:if="${formErrorMessage}" th:text="${formErrorMessage}">
+            Error</div>
+</form>
