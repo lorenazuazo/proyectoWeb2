@@ -28,7 +28,7 @@
 </head>
 <body style="background-color: rgb(63, 62, 62);">
     <!-- barra de navegacion -->
-  <div th:include="components/nav.html"></div>
+  <div th:include="components/nav.html" th:remove="tag"></div>
 
 
 <!-- formulario de comentarios -->
@@ -97,8 +97,8 @@
 </div>
 
 
-  <div th:include="components/footer.html"></div>
-  <div th:include="components/scripts.html"></div>  
+  <div th:include="components/footer.html" th:remove="tag"></div>
+  <div th:include="components/scripts.html" th:remove="tag"></div>  
     
 </body>
 </html>

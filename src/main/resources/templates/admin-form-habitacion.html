@@ -43,7 +43,7 @@
 <section class="banner"></section> 
 
 <!-- barra de navegacion de modificaciones -->
-<div th:include="components/navadmin.html"></div>
+<div th:include="components/navadmin.html" th:remove="tag"></div>
 
 <!-- formulario y lista para modificar el usuario -->
 <div th:include="/hab-forms/hab-view.html"th:remove="tag"></div>
